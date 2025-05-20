@@ -1,0 +1,44 @@
+- slug: java
+  name: Java
+
+- slug: react
+  name: React
+
+- slug: typescript
+  name: TypeScript
+
+- slug: springboot
+  name: Spring Boot
+
+- slug: testing
+  name: Testing
+
+- slug: postgresql
+  name: PostgreSQL
+
+- slug: sybase
+  name: Sybase
+
+- slug: database
+  name: Database
+
+- slug: nodejs
+  name: Node.js
+
+- slug: sonarqube
+  name: Sonarqube
+
+- slug: aws
+  name: AWS
+
+- slug: mui
+  name: MUI
+
+- slug: cmsmx
+  name: CMS MX
+
+- slug: oracle
+  name: Oracle
+
+- slug: github-actions
+  name: GitHub Actions
