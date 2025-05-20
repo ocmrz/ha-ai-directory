@@ -75,8 +75,8 @@ function RulesCard(props: RulesCardProps) {
 				<CardDescription>{props.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="h-fit relative" >
-				<div className="font-mono bg-secondary text-xs px-3 py-2 h-96 overflow-auto rounded-xs">
-					<p className="line-clamp-[23] opacity-50 group-hover:opacity-100">{props.content}</p>
+				<div className="font-mono bg-secondary text-xs whitespace-pre-wrap px-3 py-2 h-96 overflow-auto rounded-xs">
+					<p className="line-clamp-[23] opacity-50 group-hover:opacity-100">{props.content.trim()}</p>
 				</div>
 			</CardContent>
 			<CardFooter>
@@ -110,7 +110,7 @@ function RulesDrawer(props: RulesDrawerProps) {
 
 	const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(props.content); 
+      await navigator.clipboard.writeText(props.content.trim()); 
       setIsCopied(true);
 			toast("Rule has been copied!")
       setTimeout(() => setIsCopied(false), 2000);
@@ -129,7 +129,7 @@ function RulesDrawer(props: RulesDrawerProps) {
 			<hr />
 			<DrawerFooter>
 				<div className="font-mono bg-secondary text-xs px-3 py-2 h-[550px] overflow-auto whitespace-pre-wrap rounded-sm">
-					<p className="overflow-y-scroll">{props.content}</p>
+					<p className="overflow-y-scroll">{props.content.trim()}</p>
 				</div>
 			</DrawerFooter>
 		</DrawerContent>
