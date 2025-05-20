@@ -20,25 +20,51 @@ import {
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useRouter } from 'next/navigation';
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 
 interface RulesCardProps {
 	title: string;
 	description: string;
 	content: string;
 	tags: string[];
+	open: boolean;
+	href: string;
 }
 
 function RulesCardWithDrawer(props: RulesCardProps) {
-	return (
-		<Drawer>
-			<div className="h-fit w-fit group relative">
-				<DrawerTrigger className="absolute h-full w-full z-10" />
-				<RulesCard {...props} />
-			</div>
-			<RulesDrawer {...props} />
-		</Drawer>
-	)
+  const router = useRouter();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(props.open);
+  const pendingRoute = useRef<string | null>(null);
+
+  const close = () => {
+    setOpen(false);
+    pendingRoute.current = pathname.split("/").slice(0, 3).join("/");
+  };
+
+  const handleOpenChange = (isOpen: boolean) => {
+    setOpen(isOpen);
+    if (!isOpen && pendingRoute.current) {
+      router.push(pendingRoute.current);
+      pendingRoute.current = null;
+    }
+  };
+
+  return (
+    <Drawer open={open} onClose={close} onAnimationEnd={handleOpenChange}>
+      <Link href={props.href}>
+        <div className="h-fit w-fit group relative">
+          <DrawerTrigger className="absolute h-full w-full z-10" />
+          <RulesCard {...props} />
+        </div>
+      </Link>
+      <RulesDrawer {...props} />
+    </Drawer>
+  );
 }
 
 function RulesCard(props: RulesCardProps) {

@@ -59,12 +59,12 @@ async function getRulesByTag(tag: string): Promise<RuleDocument[]> {
 export default async function RulesPage({
 	params,
 }: {
-	params: { slug: string }
+	params: { slug: [string, string?] }
 }) {
 	const { slug } = params;
-	const rules = await getRulesByTag(slug);
+	const rules = await getRulesByTag(slug[0]);
 	
-	const tagName = await getTagName(slug);
+	const tagName = await getTagName(slug[0]);
 	
 	return (
 		<div className="p-8">
@@ -79,6 +79,8 @@ export default async function RulesPage({
 							description={rule.description}
 							content={rule.content}
 							tags={rule.tags}
+              open={slug[1] === rule.fileName.split(".")[0]}
+              href={`/rules/${slug[0]}/${rule.fileName.split(".")[0]}`}
 						/>
 					))}
 				</div>
