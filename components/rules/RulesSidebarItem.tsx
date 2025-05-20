@@ -9,7 +9,7 @@ interface RulesSidebarItemProps {
 
 export function RulesSidebarItem({ children, slug }: RulesSidebarItemProps) {
   const pathname = usePathname();
-  const isCurrentPage = pathname === `/rules/${slug}`;
+  const isCurrentPage = pathname.startsWith(`/rules/${slug}`);
   
   return (
     <a 
