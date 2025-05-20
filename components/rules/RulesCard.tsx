@@ -54,9 +54,20 @@ function RulesCard(props: RulesCardProps) {
 				</div>
 			</CardContent>
 			<CardFooter>
-				<p>{props.tags.join(", ")}</p>
+				<RulesCardTags tags={props.tags}/>
 			</CardFooter>
 		</Card>
+	)
+}
+
+
+interface RulesCardTagsProps {
+	tags: string[]
+}
+
+function RulesCardTags(props: RulesCardTagsProps) {
+	return (
+		<p className="text-xs font-mono ">{props.tags.join(", ")}</p>
 	)
 }
 
