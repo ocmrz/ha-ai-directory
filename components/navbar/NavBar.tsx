@@ -1,9 +1,9 @@
-import { SearchCommandDialog } from "../search-command-dialog";
+import { SearchCommandDialog } from "../command/SearchCommandDialog";
 import { NavMenu } from "./NavMenu";
 
 function NavBar() {
 	return (
-		<nav className="flex flex-row align-middle justify-between p-4 pr-64 border-b">
+		<nav className="flex flex-row items-center justify-between p-4 border-b">
 			<div className="font-mono"><a href="/">directory</a></div>
 			<NavMenu />
 			<SearchCommandDialog />
