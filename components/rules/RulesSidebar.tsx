@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import matter from 'gray-matter';
+import { RulesSidebarItem } from './RulesSidebarItem';
 
 type Tag = {
   slug: string;
@@ -83,21 +84,6 @@ async function RulesSidebar() {
       )}
     </nav>
   )
-}
-
-
-interface RulesSidebarItemProps {
-    children: React.ReactNode;
-    slug: string;
-}
-function RulesSidebarItem(props: RulesSidebarItemProps) {
-
-    return (
-        <a href={`/rules/${props.slug}`} className="block px-6 py-3 cursor-pointer hover:bg-secondary transition duration-150 font-medium text-sm">
-            {props.children}
-        </a>
-    )
-
 }
 
 export {
