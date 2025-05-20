@@ -61,7 +61,7 @@ export default async function RulesPage({
 }: {
 	params: { slug: [string, string?] }
 }) {
-	const { slug } = params;
+	const { slug } = await params;
 	const rules = await getRulesByTag(slug[0]);
 	
 	const tagName = await getTagName(slug[0]);
