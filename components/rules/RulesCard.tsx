@@ -75,7 +75,7 @@ function RulesCard(props: RulesCardProps) {
 				<CardDescription>{props.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="h-fit relative" >
-				<div className="font-mono bg-secondary text-xs px-3 py-2 h-96 overflow-auto">
+				<div className="font-mono bg-secondary text-xs px-3 py-2 h-96 overflow-auto rounded-xs">
 					<p className="line-clamp-[23] opacity-50 group-hover:opacity-100">{props.content}</p>
 				</div>
 			</CardContent>
@@ -128,7 +128,7 @@ function RulesDrawer(props: RulesDrawerProps) {
 			</DrawerHeader>
 			<hr />
 			<DrawerFooter>
-				<div className="font-mono bg-secondary text-xs px-3 py-2 h-[550px] overflow-auto whitespace-pre-wrap">
+				<div className="font-mono bg-secondary text-xs px-3 py-2 h-[550px] overflow-auto whitespace-pre-wrap rounded-sm">
 					<p className="overflow-y-scroll">{props.content}</p>
 				</div>
 			</DrawerFooter>
