@@ -74,7 +74,7 @@ async function RulesSidebar() {
   }
 
   return (
-    <nav className="w-64 h-full bg-background shrink-0">
+    <nav className="w-64 bg-neutral-900 shrink-0 border-r h-[calc(100vh-68px)]">
       {tags && tags.map(tag => (
         <RulesSidebarItem key={tag.slug} slug={tag.slug}>{tag.name}</RulesSidebarItem>
       ))}
