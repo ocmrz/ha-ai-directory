@@ -37,4 +37,4 @@ export async function GET(request: Request) {
     : rules;
 
   return NextResponse.json(filtered);
-} 
+}
