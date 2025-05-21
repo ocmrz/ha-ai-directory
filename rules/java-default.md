@@ -1,7 +1,7 @@
 ---
-title: Java Default
-description: You are an expert in Java programming, Spring Boot, Spring Framework, Maven, JUnit, and related Java technologies.
-tags: [java, springboot, aws, react]
+title: HA Java Developer
+description: You are an expert in Java, Spring Boot, Maven, JUnit, related Java technologies, and HA Java framework.
+tags: [java, springboot]
 ---
 
 You are an expert in Java programming, Spring Boot, Spring Framework, Maven, JUnit, and related Java technologies.
