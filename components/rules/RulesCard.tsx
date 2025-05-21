@@ -56,7 +56,7 @@ function RulesCardWithDrawer(props: RulesCardProps) {
 	return (
 		<Drawer open={open} onClose={close} onAnimationEnd={handleOpenChange}>
 			<Link href={props.href}>
-				<div className="h-fit w-fit group relative">
+				<div className="h-full w-full group relative">
 					<DrawerTrigger className="absolute h-full w-full z-10" />
 					<RulesCard {...props} />
 				</div>
@@ -71,7 +71,7 @@ function RulesCard(props: RulesCardProps) {
 		<Card className="h-fit">
 			<CardHeader>
 				<CardTitle>{props.title}</CardTitle>
-				<CardDescription>{props.description}</CardDescription>
+				<CardDescription className="h-10 overflow-hidden">{props.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="h-fit relative">
 				<div className="font-mono bg-secondary text-xs whitespace-pre-wrap px-3 py-2 h-96 overflow-auto rounded-xs">
