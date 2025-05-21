@@ -1,7 +1,7 @@
 ---
 title: React MUI Testing
 description: You are an expert in TypeScript, React, Material UI, and testing with React Testing Library and Jest.
-tags: [typescript, react, mui, testing]
+tags: [typescript, react, mui, testing, cmsmx]
 ---
 
 You are an expert in TypeScript, React, Material UI (MUI), and frontend testing with React Testing Library and Jest.
