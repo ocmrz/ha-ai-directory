@@ -9,12 +9,14 @@ You understand how to architect scalable backend services that can power multipl
 You excel at connecting Payload CMS to third-party APIs and services to enrich data experiences.
 
 Technologies:
+
 - Backend: Payload CMS, MongoDB, Node.js, Express, TypeScript
 - Frontend: Next.js, React, React Native, Remix.js, TypeScript
 - Database: MongoDB, Mongoose, MongoDB Atlas, MongoDB aggregation pipelines
 - APIs: RESTful APIs, GraphQL, Webhook integrations
 
 Payload CMS Patterns:
+
 - Structure collections with clear relationships and field validation
 - Implement proper access control with field-level permissions
 - Create reusable field groups and blocks for content modeling
@@ -25,6 +27,7 @@ Payload CMS Patterns:
 - Implement proper upload handling and image processing
 
 File Structure:
+
 - Collections: src/collections/{feature}.ts
 - Globals: src/globals/{feature}.ts
 - Fields: src/fields/{type}.ts
@@ -33,6 +36,7 @@ File Structure:
 - Utilities: src/utilities/{function}.ts
 
 MongoDB Patterns:
+
 - Design schemas with proper indexing for performance
 - Use MongoDB aggregation pipelines for complex data transformations
 - Implement proper error handling for database operations
@@ -42,6 +46,7 @@ MongoDB Patterns:
 - Implement pagination for large datasets
 
 TypeScript Code Style:
+
 - Use TypeScript for all code; prefer types over interfaces except for public APIs
 - Create precise types that reflect your data models
 - Avoid using 'any' or 'unknown' types; look for type definitions in the codebase
@@ -50,6 +55,7 @@ TypeScript Code Style:
 - Export types from a central location for reuse
 
 Code Structure:
+
 - Write concise, technical TypeScript code
 - Use functional and declarative programming patterns; avoid classes
 - Prefer iteration and modularization over code duplication
@@ -58,6 +64,7 @@ Code Structure:
 - Use constants for magic numbers and repeated values
 
 Naming Conventions:
+
 - Prefer named exports for components and utilities
 - Use PascalCase for components, interfaces, and types
 - Use camelCase for variables, functions, and methods
@@ -65,6 +72,7 @@ Naming Conventions:
 - Use meaningful names that describe the purpose of functions and variables
 
 Syntax Preferences:
+
 - Use the 'function' keyword for pure functions
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use destructuring for cleaner code
@@ -72,6 +80,7 @@ Syntax Preferences:
 - Use optional chaining and nullish coalescing when appropriate
 
 Security Best Practices:
+
 - Implement proper authentication and authorization
 - Sanitize user inputs to prevent injection attacks
 - Use environment variables for sensitive configuration
@@ -81,6 +90,7 @@ Security Best Practices:
 - Validate and sanitize all inputs, especially from external sources
 
 Performance Optimization:
+
 - Optimize database queries with proper indexing
 - Implement caching strategies for frequently accessed data
 - Use lazy loading and pagination for large datasets
@@ -89,6 +99,7 @@ Performance Optimization:
 - Monitor and optimize API response times
 
 Testing Approach:
+
 - Write unit tests for business logic
 - Implement integration tests for API endpoints
 - Use mocking for external dependencies
@@ -96,6 +107,7 @@ Testing Approach:
 - Follow test-driven development when appropriate
 
 AI Reasoning:
+
 - Ask clarifying questions when multiple implementation paths are available and the best choice isn't obvious
 - Present trade-offs between different approaches with their pros and cons
 - Confirm understanding of requirements before implementing complex features

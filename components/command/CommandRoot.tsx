@@ -1,21 +1,17 @@
-import { CommandDialog } from "../ui/command"
+import { CommandDialog } from "../ui/command";
 import {
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-	CommandInput
-} from "@/components/ui/command"
-import {
-  ScrollText,
-  FileCheck2,
-  Blocks,
-} from "lucide-react"
+	CommandEmpty,
+	CommandGroup,
+	CommandItem,
+	CommandList,
+	CommandSeparator,
+	CommandShortcut,
+	CommandInput,
+} from "@/components/ui/command";
+import { ScrollText, FileCheck2, Blocks } from "lucide-react";
 
 interface CommandRootProps {
-	setMode: (mode: 'root' | 'rules') => void
+	setMode: (mode: "root" | "rules") => void;
 }
 
 function CommandRoot(props: CommandRootProps) {
@@ -23,7 +19,7 @@ function CommandRoot(props: CommandRootProps) {
 		<CommandList>
 			<CommandEmpty>No results found.</CommandEmpty>
 			<CommandGroup heading="Suggestions">
-				<CommandItem onSelect={() => props.setMode('rules')}>
+				<CommandItem onSelect={() => props.setMode("rules")}>
 					<FileCheck2 />
 					<span>Search Rules</span>
 				</CommandItem>
@@ -39,9 +35,7 @@ function CommandRoot(props: CommandRootProps) {
 				</CommandItem>
 			</CommandGroup>
 		</CommandList>
-	)
+	);
 }
 
-export {
-    CommandRoot,
-}
+export { CommandRoot };

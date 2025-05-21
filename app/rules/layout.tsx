@@ -1,14 +1,14 @@
 import { RulesSidebar } from "@/components/rules/RulesSidebar";
 
 export default function RulesLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
 	return (
 		<main className="flex flex-row">
-			<RulesSidebar/>
+			<RulesSidebar />
 			{children}
 		</main>
-	)
+	);
 }
