@@ -54,34 +54,27 @@ export function SearchCommandDialog() {
 		}
 	}, [filteredRules, selectedIndex]);
 
-	// Handle arrow keys, Enter, and Escape in rules mode
+	// Only handle Escape in rules mode since Enter will be handled by SearchRules
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (mode !== "rules" || filteredRules.length === 0) return;
-		switch (e.key) {
-			case "ArrowDown":
-				e.preventDefault();
-				setSelectedIndex((i) => (i + 1) % filteredRules.length);
-				break;
-			case "ArrowUp":
-				e.preventDefault();
-				setSelectedIndex(
-					(i) => (i - 1 + filteredRules.length) % filteredRules.length,
-				);
-				break;
-			case "Enter":
-				e.preventDefault();
-				const rule = filteredRules[selectedIndex];
-				setOpen(false);
-				setMode("root");
-				setSelectedIndex(0);
-				const tag = rule.tags[0] || "";
-				router.push(`/rules/${tag}/${rule.slug}`);
-				break;
-			case "Escape":
-				e.preventDefault();
-				setMode("root");
-				break;
+		if (mode !== "rules") return;
+		if (e.key === "Escape") {
+			e.preventDefault();
+			setMode("root");
 		}
+	};
+	
+	// Handle rule selection from SearchRules
+	const handleRuleSelect = (rule: {
+		slug: string;
+		title: string;
+		description: string;
+		tags: string[];
+		content: string;
+	}) => {
+		setOpen(false);
+		setMode("root");
+		const tag = rule.tags[0] || "";
+		router.push(`/rules/${tag}/${rule.slug}`);
 	};
 
 	const handleOpenChange = (value: boolean) => {
@@ -111,7 +104,7 @@ export function SearchCommandDialog() {
 				Press{" "}
 				<kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
 					<span className="text-xs">⌘</span>K
-				</kbd>
+				</kbd>{" "}to search
 			</span>
 			<CommandDialog open={open} onOpenChange={handleOpenChange}>
 				<CommandInput
@@ -122,10 +115,9 @@ export function SearchCommandDialog() {
 					autoFocus
 				/>
 				{mode === "rules" ? (
-					<SearchRules
-						searchQuery={searchQuery}
-						selectedIndex={selectedIndex}
-						setSelectedIndex={setSelectedIndex}
+					<SearchRules 
+						searchQuery={searchQuery} 
+						onSelect={handleRuleSelect}
 					/>
 				) : (
 					<CommandRoot setMode={setMode} />
