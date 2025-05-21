@@ -37,7 +37,7 @@ const features = [
     Icon: FileTextIcon,
     name: "Rules & Instructions",
     description: "Find rules that fit HA's use cases.",
-    href: "#",
+    href: "/rules",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
@@ -72,7 +72,7 @@ const features = [
     Icon: Code,
     name: "IDE Integration",
     description: "Integrate our AI tools in IDEs to nitro boost your efficiency.",
-    href: "#",
+    href: "/setup",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
@@ -83,7 +83,7 @@ const features = [
     Icon: Share2Icon,
     name: "MCP Integrations",
     description: "Provides MCP integration for internal libraries & services.",
-    href: "#",
+    href: "/mcp",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
@@ -95,7 +95,7 @@ const features = [
     name: "Current Best Practices",
     description: "Get up-to-date best practices for AI usages.",
     className: "col-span-3 lg:col-span-1",
-    href: "#",
+    href: "/best-practices",
     cta: "Learn more",
     background: (
       <Calendar
