@@ -45,3 +45,15 @@
 
 - slug: unit-test
   name: Unit Test
+
+- slug: tailwindcss
+  name: Tailwind CSS
+
+- slug: shadcn
+  name: Shadcn UI
+
+- slug: radix
+  name: Radix
+
+- slug: nextjs
+  name: Next.js
