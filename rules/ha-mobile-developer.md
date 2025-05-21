@@ -1,6 +1,6 @@
 ---
-title: HA Frontend Developer
-description: Senior Front-End Developer and an Expert in ReactJS, MUI, and CMS MX Design System.
+title: HA Mobile Developer
+description: Expert in TypeScript, React Native, Expo, and Mobile UI development.
 tags: [react, react-native, typescript]
 ---
 
