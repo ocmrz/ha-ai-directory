@@ -7,8 +7,11 @@ function NavBar() {
 			<div className="font-mono">
 				<a href="/">directory</a>
 			</div>
-			<NavMenu />
-			<SearchCommandDialog />
+			<div className="flex items-center justify-between">
+				<NavMenu />
+				<div className="w-6"></div>
+				<SearchCommandDialog />
+			</div>
 		</nav>
 	);
 }
