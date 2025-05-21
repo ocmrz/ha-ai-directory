@@ -7,24 +7,23 @@ import { RulesSidebarItem } from './RulesSidebarItem';
 type Tag = {
   slug: string;
   name: string;
+  count?: number;
 };
 
 async function getRulesTags() {
   try {
-    // Read all markdown files
     const rulesDirectory = path.join(process.cwd(), 'rules');
     const fileNames = fs.readdirSync(rulesDirectory).filter(file => file.endsWith('.md'));
     
-    // Read tags.yaml
     const tagsYamlPath = path.join(rulesDirectory, 'tags.yaml');
     const tagsYamlContent = fs.readFileSync(tagsYamlPath, 'utf8');
     const tagsList = yaml.load(tagsYamlContent) as Tag[];
     
-    // Create a map for quick lookup
     const tagsMap = new Map<string, Tag>();
     tagsList.forEach(tag => tagsMap.set(tag.slug, tag));
     
-    // Extract tags from markdown files
+    const tagCounts = new Map<string, number>();
+    
     const uniqueTags = new Set<string>();
     
     fileNames.forEach(fileName => {
@@ -33,7 +32,11 @@ async function getRulesTags() {
       const { data } = matter(fileContent);
       
       if (data.tags && Array.isArray(data.tags)) {
-        data.tags.forEach((tag: string) => uniqueTags.add(tag));
+        data.tags.forEach((tag: string) => {
+          uniqueTags.add(tag);
+          // Increment tag count
+          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+        });
       }
     });
     
@@ -43,7 +46,12 @@ async function getRulesTags() {
     
     uniqueTags.forEach(tag => {
       if (tagsMap.has(tag)) {
-        validTags.push(tagsMap.get(tag)!);
+        const tagData = tagsMap.get(tag)!;
+        // Add count to tag data
+        validTags.push({
+          ...tagData,
+          count: tagCounts.get(tag) || 0
+        });
       } else {
         missingTags.push(tag);
       }
@@ -74,10 +82,12 @@ async function RulesSidebar() {
     );
   }
 
+  const sortedTags = tags ? [...tags].sort((a, b) => (b.count || 0) - (a.count || 0)) : null;
+
   return (
     <nav className="w-64 bg-neutral-900 shrink-0 border-r h-[calc(100vh-68px)]">
-      {tags && tags.map(tag => (
-        <RulesSidebarItem key={tag.slug} slug={tag.slug}>{tag.name}</RulesSidebarItem>
+      {sortedTags && sortedTags.map(tag => (
+        <RulesSidebarItem key={tag.slug} slug={tag.slug} count={tag.count || 0}>{tag.name}</RulesSidebarItem>
       ))}
       {!tags && !error && (
         <div className="p-4 text-muted-foreground text-sm">No tags found</div>

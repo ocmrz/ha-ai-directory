@@ -5,18 +5,20 @@ import { usePathname } from 'next/navigation';
 interface RulesSidebarItemProps {
   children: React.ReactNode;
   slug: string;
+  count: number
 }
 
-export function RulesSidebarItem({ children, slug }: RulesSidebarItemProps) {
+export function RulesSidebarItem(props: RulesSidebarItemProps) {
   const pathname = usePathname();
-  const isCurrentPage = pathname.startsWith(`/rules/${slug}`);
+  const isCurrentPage = pathname.startsWith(`/rules/${props.slug}`);
   
   return (
     <a 
-      href={`/rules/${slug}`} 
-      className={`block px-6 py-3 cursor-pointer hover:bg-secondary transition duration-150 font-medium text-sm ${!isCurrentPage ? 'opacity-30' : ''}`}
+      href={`/rules/${props.slug}`} 
+      className={`flex justify-between px-6 py-3 cursor-pointer hover:bg-secondary transition duration-150 font-medium text-sm ${!isCurrentPage ? 'opacity-30' : ''}`}
     >
-      {children}
+      <span>{props.children}</span>
+      <span>{props.count}</span>
     </a>
   );
 }
