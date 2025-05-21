@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import { Dam } from "lucide-react";
 
 const interSans = Inter({
 	variable: "--font-geist-sans",
@@ -40,6 +42,7 @@ export default function RootLayout({
 					<NavBar />
 					{children}
 					<Toaster />
+          <SmoothCursor springConfig={{ damping: 100, stiffness: 1000, mass: 1, restDelta: 0.001 }}/>
 				</ThemeProvider>
 			</body>
 		</html>
