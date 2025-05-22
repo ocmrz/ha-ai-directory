@@ -91,7 +91,7 @@ async function RulesSidebar() {
 		: null;
 
 	return (
-		<nav className="w-64 bg-neutral-900 shrink-0 border-r h-[calc(100vh-68px)]">
+		<nav className="w-64 shrink-0 h-[calc(100vh-68px)] bg-background border-r border-border">
 			{sortedTags &&
 				sortedTags.map((tag) => (
 					<RulesSidebarItem
