@@ -1,0 +1,7 @@
+.next/
+.vscode/
+k8s/
+node_modules/
+.gitignore
+.prettierrc
+README.md
