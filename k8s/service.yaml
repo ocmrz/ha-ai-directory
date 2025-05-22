@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-directory
+  namespace: poc-cms-dhp-1
+spec:
+  selector:
+    app: ai-directory
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

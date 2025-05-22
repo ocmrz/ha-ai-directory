@@ -61,7 +61,7 @@ async function getRulesByTag(tag: string): Promise<RuleDocument[]> {
 export default async function RulesPage({
 	params,
 }: {
-	params: { slug: [string, string?] };
+	params: Promise<{ slug: [string, string?] }>;
 }) {
 	const { slug } = await params;
 	const rules = await getRulesByTag(slug[0]);

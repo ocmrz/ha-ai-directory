@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: ai-directory
+  namespace: poc-cms-dhp-1
+spec:
+  to:
+    kind: Service
+    name: ai-directory
+  port:
+    targetPort: 8080

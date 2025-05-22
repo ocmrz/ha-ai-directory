@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-directory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai-directory
+  template:
+    metadata:
+      labels:
+        app: ai-directory
+    spec:
+      containers:
+      - name: ai-directory
+        image: artifactrepo.server.ha.org.hk:55743/docker-dev-cms/ai-directory:20250521
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+      imagePullSecrets:
+         - name: regcred
+      volumes:
+      - name: logs
+        persistentVolumeClaim:
+          claimName: ai-directory-logs

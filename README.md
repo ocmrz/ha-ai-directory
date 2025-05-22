@@ -1,5 +1,24 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Build Image
+
+```sh
+podman buildx build --platform linux/amd64 -t artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250521 .
+```
+
+## Push Image
+
+```sh
+podman push artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250521 --tls-verify=false
+```
+
+## Run Image
+
+```sh
+podman run -p 8083:8080 artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250521
+```
+
+
 ## Getting Started
 
 First, run the development server:
