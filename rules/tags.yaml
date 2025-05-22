@@ -63,3 +63,12 @@
 
 - slug: expo
   name: Expo
+
+- slug: junit
+  name: JUnit
+
+- slug: mockito
+  name: Mockito
+
+- slug: jacoco
+  name: JaCoCo
