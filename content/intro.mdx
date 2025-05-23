@@ -1,8 +1,8 @@
-# Understanding MCP, llms.txt, and Rules
+# Understanding MCP, `llms.txt`, and Rules
 
 ## Introduction
 
-As AI assistants like DeepSeek and other language models start to play a role in healthcare settings, it's crucial to understand how they can be safely and effectively integrated into the Hospital Authority's workflows. In HA, these technologies can help with everything from appointment management to clinical decision support—but only if they interact securely and responsibly with hospital systems and sensitive patient data. Three key concepts make this possible: **MCP**, **llms.txt**, and **Rules**. Here's how they fit into the HA environment.
+As AI assistants like DeepSeek and other language models start to play a role in healthcare settings, it's crucial to understand how they can be safely and effectively integrated into the Hospital Authority's workflows. In HA, these technologies can help with everything from appointment management to clinical decision support—but only if they interact securely and responsibly with hospital systems and sensitive patient data. Three key concepts make this possible: **MCP**, **`llms.txt`**, and **Rules**. Here's how they fit into the HA environment.
 
 ## What is MCP (Model Context Protocol)?
 
@@ -38,7 +38,7 @@ Just as websites use `robots.txt` to guide search engines, `llms.txt` is a speci
 
 By providing this file, the HA ensures that AI systems can quickly understand what content is available and how to use it appropriately, reducing risk of misinterpretation or misuse.
 
-### What is llms-full.txt?
+### What is `llms-full.txt`?
 
 While `llms.txt` gives a high-level summary, `llms-full.txt` is a more detailed and comprehensive file intended for AI assistants that need precise, structured guidance about a website or information system. This is especially helpful for large organizations like the HA, where systems are complex and contain sensitive or regulated data.
 
@@ -68,8 +68,8 @@ For example, if you ask an AI for advice about a medication, the rules might req
 
 ## How They All Work Together
 
-These three components work together to ensure AI assistants are safe, effective, and trustworthy. Let's say a nurse wants to check a patient's discharge summary. MCP provides a secure connection to the CMS, llms.txt helps the AI understand the structure and restrictions of the hospital intranet, and Rules ensure that only the correct information is shared, in a way that respects patient privacy and professional standards.
+These three components work together to ensure AI assistants are safe, effective, and trustworthy. Let's say a nurse wants to check a patient's discharge summary. MCP provides a secure connection to the CMS, `llms.txt` helps the AI understand the structure and restrictions of the hospital intranet, and Rules ensure that only the correct information is shared, in a way that respects patient privacy and professional standards.
 
 - **MCP** controls secure access to sensitive systems.
-- **llms.txt** guides the AI on how to interpret and interact with digital resources.
+- **`llms.txt`** guides the AI on how to interpret and interact with digital resources.
 - **Rules** enforce compliance, professionalism, and safety.
