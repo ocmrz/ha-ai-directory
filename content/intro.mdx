@@ -7,7 +7,7 @@ As AI assistants like DeepSeek and other language models start to play a role in
 ## What is MCP (Model Context Protocol)?
 
 <div className="flex justify-center p-4">
-	![MCP Illustration](/mcp-illustration.webp)
+	<img src="/mcp-illustration.webp" alt="MCP Illustration" className="max-w-3/4" />
 </div>
 
 Think of MCP as the secure translator or adapter that allows AI assistants to connect with the Hospital Authority's complex IT systems, including the Clinical Management System (CMS), Electronic Patient Record (ePR), and various internal databases. Without MCP, even the smartest AI would be like a new doctor who doesn't have access to patient files or the right login credentials.
@@ -22,6 +22,10 @@ Think of MCP as the secure translator or adapter that allows AI assistants to co
 For example, if you ask an AI assistant, “Show me Mr. Chan's latest lab results,” MCP ensures the AI can securely access only the relevant part of the CMS, logs the access, and returns the information to you—without exposing any other patient data.
 
 ## What is `llms.txt` and `llms-full.txt`?
+
+<div className="flex justify-center p-4">
+	<img src="/llms-txt.png" alt="llms.txt Illustration" className="max-w-3/4" />
+</div>
 
 Just as websites use `robots.txt` to guide search engines, `llms.txt` is a special file that can be used to guide AI assistants on how to interact with their online resources. For the HA, this might apply to public hospital websites, internal portals, or even patient information resources.
 
