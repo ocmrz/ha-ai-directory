@@ -26,9 +26,11 @@ export const metadata: Metadata = {
 };
 
 // Filter pageMap to only include docs pages, exclude app routes
-function filterPageMap(pageMap: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function filterPageMap(pageMap: any[]): any[] {
 	const excludedRoutes = ['mcp', 'rules', 'api', 'index'];
-	let result: any[] = [];
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const result: any[] = [];
 	
 	pageMap.forEach((item) => {
 		// If it's a named route that we want to exclude, skip it

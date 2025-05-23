@@ -72,7 +72,7 @@ const features = [
     Icon: Code,
     name: "IDE Integration",
     description: "Integrate our AI tools in IDEs to nitro boost your efficiency.",
-    href: "/setup",
+    href: "/docs/setup",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
@@ -83,7 +83,7 @@ const features = [
     Icon: Share2Icon,
     name: "MCP Integrations",
     description: "Provides MCP integration for internal libraries & services.",
-    href: "/mcp",
+    href: "/docs/intro",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
@@ -95,7 +95,7 @@ const features = [
     name: "AI Chat and Search",
     description: "Chat with AI and search for informations.",
     className: "col-span-3 lg:col-span-1",
-    href: "/chat",
+    href: "/docs/intro",
     cta: "Learn more",
     background: (
       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />

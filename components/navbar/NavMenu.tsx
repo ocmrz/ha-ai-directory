@@ -80,7 +80,7 @@ export function NavMenu() {
 							<ListItem href="/docs/intro" title="Introduction">
 								What is rules, llms.txts, and MCPs?
 							</ListItem>
-							<ListItem href="/docs/installation" title="Installation & Setup">
+							<ListItem href="/docs/setup" title="Installation & Setup">
 								How to setup rules, llms.txts and MCPs?
 							</ListItem>
 							<ListItem
