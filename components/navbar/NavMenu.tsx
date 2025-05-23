@@ -65,7 +65,7 @@ export function NavMenu() {
 								<NavigationMenuLink asChild>
 									<Link
 										className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-										href="/"
+										href="/docs/intro"
 									>
 										<img src="/ha-logo.svg" />
 										<div className="mb-2 mt-4 text-lg font-medium">
@@ -77,7 +77,7 @@ export function NavMenu() {
 									</Link>
 								</NavigationMenuLink>
 							</li>
-							<ListItem href="/docs" title="Introduction">
+							<ListItem href="/docs/intro" title="Introduction">
 								What is rules, llms.txts, and MCPs?
 							</ListItem>
 							<ListItem href="/docs/installation" title="Installation & Setup">

@@ -5,7 +5,7 @@ import { ModeToggle } from "../ModeToggle";
 
 function NavBar() {
 	return (
-		<nav className="flex flex-row items-center justify-between p-4 border-b">
+		<nav className="flex flex-row items-center justify-between p-4 border-b sticky top-0">
 			<div className="font-mono">
 				<Link href="/">directory</Link>
 			</div>
