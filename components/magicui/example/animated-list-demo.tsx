@@ -13,32 +13,31 @@ interface Item {
 
 let notifications = [
   {
-    name: "Payment received",
-    description: "Magic UI",
-    time: "15m ago",
-
-    icon: "💸",
+    name: "What is DHP?",
+    description: "CP8",
+    time: "DHP",
+    icon: "🔎",
     color: "#00C9A7",
   },
   {
-    name: "User signed up",
-    description: "Magic UI",
-    time: "10m ago",
-    icon: "👤",
+    name: "How to migrate Sybase?",
+    description: "SC4",
+    time: "DHP",
+    icon: "🗃️",
     color: "#FFB800",
   },
   {
-    name: "New message",
-    description: "Magic UI",
-    time: "5m ago",
-    icon: "💬",
+    name: "What is CMS MX?",
+    description: "CP14",
+    time: "CMS",
+    icon: "🎨",
     color: "#FF3D71",
   },
   {
-    name: "New event",
-    description: "Magic UI",
-    time: "2m ago",
-    icon: "🗞️",
+    name: "What is our DB strategy?",
+    description: "EH1",
+    time: "DB",
+    icon: "💾",
     color: "#1E86FF",
   },
 ];

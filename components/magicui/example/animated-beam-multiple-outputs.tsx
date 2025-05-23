@@ -13,7 +13,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+        "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-white p-2 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
         className,
       )}
     >
@@ -54,24 +54,24 @@ export default function AnimatedBeamMultipleOutputDemo({
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className="size-16">
-            <Icons.openai />
+            <img src="/copilot-logo.png" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-2">
           <Circle ref={div1Ref}>
-            <Icons.googleDrive />
+            <img src="/ha-drive-logo-large.jpg" />
           </Circle>
           <Circle ref={div2Ref}>
-            <Icons.googleDocs />
+            <img src="/cms-logo-inverted.jpg" />
           </Circle>
           <Circle ref={div3Ref}>
-            <Icons.whatsapp />
+            <img src="/csaf-logo-inverted.jpg" />
           </Circle>
           <Circle ref={div4Ref}>
-            <Icons.messenger />
+            <img src="/jira-logo.png" />
           </Circle>
           <Circle ref={div5Ref}>
-            <Icons.notion />
+            <img src="/github-logo.png" />
           </Circle>
         </div>
       </div>

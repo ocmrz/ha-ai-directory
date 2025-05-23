@@ -1,4 +1,4 @@
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
+import { CalendarIcon, FileTextIcon,  InputIcon } from "@radix-ui/react-icons";
 import { BellIcon, Share2Icon, Code } from "lucide-react";
 
 import { Calendar } from "@/components/ui/calendar";
@@ -91,29 +91,32 @@ const features = [
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Current Best Practices",
-    description: "Get up-to-date best practices for AI usages.",
+    Icon: InputIcon,
+    name: "AI Chat and Search",
+    description: "Chat with AI and search for informations.",
     className: "col-span-3 lg:col-span-1",
-    href: "/best-practices",
+    href: "/chat",
     cta: "Learn more",
     background: (
-      <Calendar
-        mode="single"
-        selected={new Date(2022, 4, 11, 0, 0, 0)}
-        className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90"
-      />
+      <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
+      // <Calendar
+      //   mode="single"
+      //   selected={new Date(2022, 4, 11, 0, 0, 0)}
+      //   className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90"
+      // />
     ),
   },
 ];
 
 function HomeBento() {
   return (
-    <BentoGrid>
-      {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
-      ))}
-    </BentoGrid>
+    <>
+      <BentoGrid>
+        {features.map((feature, idx) => (
+          <BentoCard key={idx} {...feature} />
+        ))}
+      </BentoGrid>
+    </>
   );
 }
 
