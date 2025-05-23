@@ -1,0 +1,92 @@
+# Rules Setup
+
+This guide explains how to configure **repository custom instructions** for GitHub Copilot and how to create **rules** in Cursor. These systems let you provide AI coding assistants with persistent, context-specific guidance—making their responses more aligned with your team's workflows, coding standards, and preferences.
+
+## GitHub Copilot: Repository Custom Instructions
+
+GitHub Copilot supports repository-level custom instructions, allowing you to encode preferences, workflows, or important context into a Markdown file. This information is automatically included in Copilot Chat and when Copilot is assigned to issues or pull requests.
+
+**Official documentation:**  
+[Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode)
+
+### Steps to Set Up
+
+1. **Create the Instructions File**
+   - In the root of your repository, create a file named `.github/copilot-instructions.md`.
+   - If the `.github` directory does not exist, create it first.
+
+2. **Write Your Instructions**
+   - Use short, clear, and self-contained statements.
+   - Example:
+     ```markdown
+     Always use React 18 and Material-UI v5 for frontend code.
+     Integrate with CMS MX APIs when backend functionality is required.
+     Follow our repository's code style as defined in styleguide.md.
+     ```
+   - Instructions are written in Markdown. Whitespace and line breaks are ignored, so write for readability.
+
+3. **Save and Commit**
+   - Commit and push the `.github/copilot-instructions.md` file to your repository.
+
+4. **Usage**
+   - Copilot will automatically include these instructions in chat interactions, pull requests, and issue assignments related to the repository.
+   - In Copilot Chat (in VS Code, Visual Studio, or GitHub web), you can see if the instructions are being applied by checking the References list.
+
+5. **Manage or Update**
+   - Edit `.github/copilot-instructions.md` at any time to update or refine your rules.
+
+**Tips:**
+- Keep instructions concise and relevant to your project.
+- Avoid conflicting guidance.
+- See more examples and details in the [official Copilot documentation](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode).
+
+## Cursor: Project and User Rules
+
+Cursor uses a “rules” system to provide persistent, reusable context for the Agent and Cmd-K AI. Rules can encode coding conventions, automate workflows, or establish response preferences.
+
+**Official documentation:**  
+[Cursor – Rules](https://docs.cursor.com/context/rules)
+
+### Types of Rules
+
+- **Project Rules:**  
+  Stored in `.cursor/rules` inside your repo, version-controlled, and can be scoped to specific directories.
+- **User Rules:**  
+  Defined in Cursor's global settings, always applied in your environment.
+- **Legacy Rules:**  
+  `.cursorrules` in project root (deprecated).
+
+### How to Set Up Project Rules
+
+1. **Create a Rule File**
+   - In your project, create a `.cursor/rules` directory if it doesn't exist.
+   - Use Cursor's “New Cursor Rule” command, or manually create a `.mdc` file in `.cursor/rules`.
+
+2. **Write Rule Content**
+   - Rules are written in MDC (Markdown with metadata).
+   - Example:
+     ```md
+     ---
+     description: Use React 18, MUI 5, and CMS MX
+     globs:
+     alwaysApply: true
+     ---
+     - Always use React 18 syntax and features for all frontend components.
+     - Use MUI 5 for all UI elements.
+     - Integrate with CMS MX for backend data and APIs.
+     ```
+   - Reference files or templates with `@filename.tsx` as needed.
+
+3. **Organize Nested Rules (Optional)**
+   - Place `.cursor/rules` directories in subfolders for component- or domain-specific guidance.
+
+4. **Using and Managing Rules**
+   - Rules are automatically attached when relevant files are referenced.
+   - You can invoke or apply rules manually in chat using `@ruleName`.
+   - View and manage rules from Cursor Settings > Rules.
+
+5. **Best Practices**
+   - Keep rules actionable and focused (under 500 lines recommended).
+   - Split large concepts into multiple, composable rules.
+   - Provide examples or referenced files when helpful.
+   - See more: [Cursor Rules Best Practices](https://docs.cursor.com/context/rules#best-practices)
