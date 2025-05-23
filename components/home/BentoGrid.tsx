@@ -1,36 +1,88 @@
-import { CalendarIcon, FileTextIcon,  InputIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon, Code } from "lucide-react";
-
-import { Calendar } from "@/components/ui/calendar";
+import { FileTextIcon,  InputIcon } from "@radix-ui/react-icons";
+import { Share2Icon, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
 import AnimatedBeamMultipleOutputDemo from "@/components/magicui/example/animated-beam-multiple-outputs";
 import AnimatedListDemo from "@/components/magicui/example/animated-list-demo";
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { Marquee } from "@/components/magicui/marquee";
 import CodeComparisonDemo from "../magicui/example/code-comparison-demo";
+import Link from "next/link";
+import matter from "gray-matter";
+import path from "path";
+import fs from "fs";
 
-const files = [
-  {
-    name: "HA Frontend Developer",
-    body: "You are a Senior Front-End Developer and an Expert in ReactJS, JavaScript, TypeScript, HTML, CSS and modern UI/UX frameworks including MUI 5.",
-  },
-  {
-    name: "HA Java Developer",
-    body: "You are an expert in Java programming, Spring Boot, Spring Framework, Maven, JUnit, and related Java technologies. Code Style and Structure",
-  },
-  {
-    name: "HA Mobile Developer",
-    body: "You are an expert in TypeScript, React Native, Expo, and Mobile UI development. Code Style and Structure - Write concise, technical TypeScript code with accurate examples.",
-  },
-  {
-    name: "React MUI Testing",
-    body: "You are an expert in TypeScript, React, Material UI (MUI), and frontend testing with React Testing Library and Jest.",
-  },
-  {
-    name: "Innovative Web Developer",
-    body: "You are a Senior Front-End Developer and an Expert in ReactJS, NextJS, JavaScript, TypeScript, HTML, CSS and modern UI/UX frameworks (e.g., TailwindCSS, Shadcn, Radix)",
-  },
-];
+type File = {
+  href: string;
+  name: string;
+  body: string;
+}
+
+async function getRulesFiles(): Promise<File[]> {
+  try {
+    const rulesDirectory = path.join(process.cwd(), "rules");
+    const fileNames = fs.readdirSync(rulesDirectory).filter(file => file.endsWith('.md'));
+    
+    const rules = fileNames.map(fileName => {
+      const filePath = path.join(rulesDirectory, fileName);
+      const fileContent = fs.readFileSync(filePath, "utf8");
+      const { data } = matter(fileContent);
+      const slug = fileName.replace('.md', '');
+      
+      return {
+        href: `/rules/${data.tags && data.tags.length > 0 ? data.tags[0] : 'react'}/${slug}`,
+        name: data.title || fileName.replace('.md', ''),
+        body: data.description || 'No description available',
+        tags: data.tags || []
+      };
+    });
+    
+    // Shuffle the array to get random order
+    return rules.sort(() => Math.random() - 0.5);
+  } catch (error) {
+    console.error('Error reading rules:', error);
+    // Fallback to static content if there's an error
+    return [
+      {
+        href: "/rules/react",
+        name: "HA Frontend Developer",
+        body: "You are a Senior Front-End Developer and an Expert in ReactJS, JavaScript, TypeScript, HTML, CSS and modern UI/UX frameworks including MUI 5.",
+      },
+    ];
+  }
+}
+
+async function DynamicRulesMarquee() {
+  const files = await getRulesFiles();
+  
+  return (
+    <Marquee
+      pauseOnHover
+      className="absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+    >
+      {files.map((f, idx) => (
+        <Link key={idx} href={f.href} className="block">
+          <figure
+            className={cn(
+              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
+              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
+            )}
+          >
+            <div className="flex flex-row items-center gap-2">
+              <div className="flex flex-col">
+                <figcaption className="text-sm font-medium dark:text-white">
+                  {f.name}
+                </figcaption>
+              </div>
+            </div>
+            <blockquote className="mt-2 text-xs">{f.body}</blockquote>
+          </figure>
+        </Link>
+      ))}
+    </Marquee>
+  );
+}
 
 const features = [
   {
@@ -41,31 +93,7 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: (
-      <Marquee
-        pauseOnHover
-        className="absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
-      >
-        {files.map((f, idx) => (
-          <figure
-            key={idx}
-            className={cn(
-              "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
-            )}
-          >
-            <div className="flex flex-row items-center gap-2">
-              <div className="flex flex-col">
-                <figcaption className="text-sm font-medium dark:text-white ">
-                  {f.name}
-                </figcaption>
-              </div>
-            </div>
-            <blockquote className="mt-2 text-xs">{f.body}</blockquote>
-          </figure>
-        ))}
-      </Marquee>
+      <DynamicRulesMarquee />
     ),
   },
   {
@@ -99,11 +127,6 @@ const features = [
     cta: "Learn more",
     background: (
       <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
-      // <Calendar
-      //   mode="single"
-      //   selected={new Date(2022, 4, 11, 0, 0, 0)}
-      //   className="absolute right-0 top-10 origin-top scale-75 rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-90"
-      // />
     ),
   },
 ];
@@ -118,6 +141,5 @@ function HomeBento() {
       </BentoGrid>
     </>
   );
-}
+}export { HomeBento }
 
-export { HomeBento }
